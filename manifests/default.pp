@@ -1,4 +1,3 @@
-
 Exec {
     path => [ '/usr/bin/', '/bin', '/usr/local/bin/', ],
 }
