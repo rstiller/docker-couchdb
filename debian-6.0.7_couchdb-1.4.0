@@ -7,7 +7,6 @@ RUN apt-get install -y --force-yes erlang build-essential libtool autoconf autom
 RUN cd /tmp && wget --output-document=apache-couchdb-1.4.0.tar.gz http://archive.apache.org/dist/couchdb/source/1.4.0/apache-couchdb-1.4.0.tar.gz && tar xvzf apache-couchdb-1.4.0.tar.gz
 RUN cd /tmp/apache-couchdb-* && ./configure --prefix=/usr/local --with-js-lib=/usr/lib --with-js-include=/usr/include/mozjs --enable-init && make && make install
 RUN useradd -d /var/lib/couchdb couchdb
-RUN ls -la /usr/local/* /usr/local/var/*
 RUN chown -R couchdb:couchdb /usr/local/lib/couchdb /usr/local/etc/couchdb /usr/local/var/lib/couchdb /usr/local/var/log/couchdb /usr/local/var/run/couchdb
 RUN chmod -R g+rw /usr/local/lib/couchdb /usr/local/etc/couchdb /usr/local/var/lib/couchdb /usr/local/var/log/couchdb /usr/local/var/run/couchdb
 RUN ln -s /usr/local/etc/logrotate.d/couchdb /etc/logrotate.d/couchdb
