@@ -13,5 +13,9 @@ RUN ln -s /usr/local/etc/logrotate.d/couchdb /etc/logrotate.d/couchdb
 RUN ln -s /usr/local/etc/init.d/couchdb /etc/init.d
 RUN update-rc.d couchdb defaults
 
-CMD ["/usr/local/bin/couch"]
+RUN echo "[httpd]\n\
+bind_address = 0.0.0.0\n\
+port = 5984" > /usr/local/etc/couchdb/local.ini
+
+CMD ["/usr/local/bin/couchdb"]
 
