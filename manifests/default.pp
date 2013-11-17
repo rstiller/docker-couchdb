@@ -36,6 +36,15 @@ file { '/etc/init/docker-daemon.conf':
     notify => Service['docker-daemon'],
 } ->
 
+group { 'docker':
+    ensure => present,
+} ->
+
+user { 'vagrant':
+    ensure => present,
+    groups => ['docker'],
+} ->
+
 service { 'docker-daemon':
     ensure => running,
 }
