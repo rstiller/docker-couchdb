@@ -3,7 +3,7 @@ EXPOSE 5984
 
 RUN apt-get update
 RUN apt-get install -y --force-yes wget procps default-jre-headless libwxbase2.8-0 libwxgtk2.8-0 build-essential libtool autoconf automake autoconf-archive pkg-config libssl0.9.8 libssl-dev zlib1g zlib1g-dev libcurl4-openssl-dev lsb-base ncurses-dev libncurses-dev libmozjs-dev libmozjs2d libicu-dev xsltproc make python-simplejson
-ADD http://packages.erlang-solutions.com/erlang/esl-erlang/FLAVOUR_1_general/esl-erlang_15.b.3-1~debian~squeeze_amd64.deb /tmp/erlang.deb
+ADD http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_3_general/esl-erlang_15.b.3-1~debian~squeeze_amd64.deb /tmp/erlang.deb
 RUN cd /tmp && dpkg --force-depends -i erlang.deb
 RUN apt-get -f install
 ADD http://archive.apache.org/dist/couchdb/source/1.3.1/apache-couchdb-1.3.1.tar.gz /tmp/apache-couchdb-1.3.1.tar.gz
